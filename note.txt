@@ -1,0 +1,45 @@
+1. 내부 컴포넌트 넣기 : children을 인자로 받으면 App에서 내부에 있는 컴포넌트가 들어가게 됨
+
+[template.js]
+const Template = ({ children }) => {
+  return (
+    <div className='template'>
+      <div>{children}</div>
+    </div>
+  )
+};
+
+2. React 아이콘 : import { MdAddCircle } from 'react-icons/md'; 
+  - <MdAddCircle /> JSX로 사용가능
+
+3. CSS 파일 : 컴포넌트 안에 같이 만든다.
+
+4. 함수형 컴포넌트 선언(arrow func) 및 props({ props }) 사용방법
+
+[todolist.js]
+const TodoList = ({ todos }) => {
+  return (
+    <ul>
+      {todos.map(todo =>
+        <TodoItem todo={todo} key={todo.id}/>
+      )}
+    </ul>
+  )
+};
+
+5. {insertToggle && <TodoInsert />}
+  - insertToggle이 true 일때만, <TodoInsert />가 표현됨 (&& and)
+  - [App.js] onInsertToggle() 메소드로 true/false 제어
+
+6. setInsertToggle(insertToggle => !insertToggle)
+  - true/false 전환하는 쉬운 구문
+
+7. <form> 의 <input>에서는 value, onChange가 반드시 있어야 함! (useState 활용)
+  - enter를 눌러도 submit 처리가 된다!
+
+8. 이벤트핸들러를 하위 컴포넌트에 줄 때는, 계속 props props로 달아준다.
+  - 이벤트리스너 onClick 안에 작성할때는, {() => {handler(var)}} 형태로 넣어준다.
+
+9. onSubmit 등 이벤트리스너는 e.preventDefault()로 리로드 최소화
+
+10. ... (spread 연산자)는 객체에도 사용 가능. 변수와 key값을 같이하면 text: text 할 필요 없음
